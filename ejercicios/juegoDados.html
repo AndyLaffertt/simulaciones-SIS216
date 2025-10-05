@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulación: Juego de Dados</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="juegoDados.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+  <a href="../index.html">🏠 Inicio</a>
+  <a href="InteresSimple.html">📈 Interés Simple</a>
+  <a href="InteresVariable.html">📊 Interés Variable</a>
+  <a href="juegoDados.html">🎲 Juego de Dados</a>
+  <a href="azucar.html">🍬 Demanda de azúcar</a>
+  <a href="granjero.html">🐣 Venta de huevos</a>
+  <a href="tienda.html">🛒 Llegada de clientes</a>
+</nav>
+
+    <h1>Simulación: Juego de Dados - Suma 7</h1>
+    <p>¿Cómo se puede determinar la ganancia neta de la casa y el número de juegos que gana la casa en un juego de suma 7?.</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Parámetros de la Simulación</h2>
+      <form id="simulacion-form">
+        <label for="numSim">Número de simulaciones:</label>
+        <input type="number" id="numSim" min="1" value="5" required>
+
+        <label for="nmj">Juegos por simulación:</label>
+        <input type="number" id="nmj" min="1" value="10" required>
+
+        <label for="puj">Costo del juego (Bs):</label>
+        <input type="number" id="puj" min="0" step="0.01" value="2" required>
+
+        <label for="cus7">Pérdida de la casa si sale 7 (Bs):</label>
+        <input type="number" id="cus7" min="0" step="0.01" value="5" required>
+
+        <div class="buttons">
+          <button type="button" id="simulateBtn">Simular</button>
+          <button type="reset" id="clearBtn">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="resultado-section">
+      <h2>Resultados</h2>
+      <table id="resultados">
+        <thead>
+          <tr>
+            <th>Simulación</th>
+            <th>Ganancia Neta Casa (Bs.)</th>
+            <th>Juegos Ganados Casa</th>
+            <th>% Juegos Ganados Casa</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody">
+          <tr><td colspan="4">Sin datos aún</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Promedio</th>
+            <td id="avgGNC">—</td>
+            <td id="avgNJGC">—</td>
+            <td id="avgPJC">—</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div id="resumenTexto" class="resumen-texto">
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="juegoDados.js"></script>
+  <script src="../script.js"></script> 
+</body>
+</html>
