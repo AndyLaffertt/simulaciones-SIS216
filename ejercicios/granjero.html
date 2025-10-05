@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulación: Granjero</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="juegoDados.css" />
+</head>
+<body>
+  <header>
+    <div id="navbar"></div>
+    <h1>Venta de Huevos y Pollos</h1>
+    <p>Simulación de las ganancias de un granjero por la venta de huevos y pollos.</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Parámetros de la Simulación</h2>
+      <form id="simulacion-form">
+        <label for="simulaciones">Simulaciones:</label>
+        <input type="number" id="simulaciones" value="100" min="1" />
+
+        <label for="dias">Días por simulación:</label>
+        <input type="number" id="dias" value="30" min="1" />
+
+        <label for="lambda">Media (λ) huevos/día:</label>
+        <input type="number" id="lambda" value="2" step="0.1" min="0.01" />
+
+        <label for="precioHuevo">Precio huevo ($):</label>
+        <input type="number" id="precioHuevo" value="2" step="0.01" min="0" />
+
+        <label for="precioPollo">Precio pollo ($):</label>
+        <input type="number" id="precioPollo" value="5" step="0.01" min="0" />
+
+        <fieldset>
+          <legend>Probabilidades por huevo (suma 1.00)</legend>
+          <label for="pRoto">Roto:</label>
+          <input type="number" class="prob" id="pRoto" value="0.2" step="0.01" min="0" max="1" data-group="huevo" />
+
+          <label for="pPollito">Pollito:</label>
+          <input type="number" class="prob" id="pPollito" value="0.3" step="0.01" min="0" max="1" data-group="huevo" />
+
+          <label for="pHuevoFinal">Queda como huevo:</label>
+          <input type="number" class="prob" id="pHuevoFinal" value="0.5" step="0.01" min="0" max="1" data-group="huevo" />
+
+          <p id="err-huevo" class="error" hidden></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Probabilidades del pollito (suma 1.00)</legend>
+          <label for="pMuere">Muere:</label>
+          <input type="number" class="prob" id="pMuere" value="0.2" step="0.01" min="0" max="1" data-group="pollito" />
+
+          <label for="pSobrevive">Sobrevive:</label>
+          <input type="number" class="prob" id="pSobrevive" value="0.8" step="0.01" min="0" max="1" data-group="pollito" />
+
+          <p id="err-pollito" class="error" hidden></p>
+        </fieldset>
+
+        <div class="btn-group">
+          <button type="button" id="btnSimular">Simular</button>
+          <button type="reset" id="btnLimpiar">Limpiar</button>
+        </div>
+
+        <div id="mensajeError" class="error" hidden></div>
+      </form>
+    </section>
+
+    <section class="resultado-section">
+      <h2>Resultados</h2>
+      <table id="tablaResultados">
+        <thead>
+            <tr>
+                <th>Simulación</th>
+                <th>Huevos generados</th>
+                <th>Huevos rotos</th>
+                <th>Pollitos nacidos</th>
+                <th>Pollitos que mueren</th>
+                <th>Pollos que sobreviven</th>
+                <th>Huevos que permanecen</th>
+                <th>Ingreso (Bs)</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="8">Sin resultados aún.</td></tr>
+        </tbody>
+      </table>
+
+      <div id="summary" class="summary-box" style="display: none;">
+        <h2>Promedios Generales de las simulaciones</h2>
+        <p>Ingreso total: <strong id="ingresoTotal">—</strong></p>
+        <p>Ingreso promedio por día: <strong id="ingresoProm">—</strong></p>
+        <p>Huevos que permanecen: <strong id="huevosSanos">—</strong></p>
+        <p>Huevos rotos: <strong id="huevosRotos">—</strong></p>
+        <p>Pollos que sobreviven: <strong id="pollosVivos">—</strong></p>
+        <p>Pollitos que mueren: <strong id="pollitosMuertos">—</strong></p>
+    </div>
+    </section>
+  </main>
+
+  <script src="../script.js"></script>
+  <script src="granjero.js"></script>
+</body>
+</html>
